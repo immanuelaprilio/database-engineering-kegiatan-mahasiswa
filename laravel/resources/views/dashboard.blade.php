@@ -23,6 +23,10 @@ Selamat Datang {{ $admin }}
 <p>{{ $mahasiswaCuti }}</p>
 </x-card>
 
+<x-alert type="success">
+Data mahasiswa berhasil dimuat
+</x-alert>
+
 <table border="1" cellpadding="10">
 
 <tr>
@@ -55,12 +59,33 @@ Selamat Datang {{ $admin }}
 
 <tr>
 <td colspan="5">
-Tidak ada data mahasiswa
+
+<x-empty-state
+title="Tidak Ada Data"
+description="Data mahasiswa belum tersedia" />
+
 </td>
 </tr>
 
 @endforelse
 
 </table>
+
+<x-panel>
+
+<x-slot:title>
+Informasi Dashboard
+</x-slot:title>
+
+<x-slot:action>
+<x-button variant="primary">
+Refresh
+</x-button>
+</x-slot:action>
+
+Dashboard mahasiswa menggunakan
+Blade Component dan Slot.
+
+</x-panel>
 
 @endsection
